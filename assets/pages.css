@@ -1,0 +1,155 @@
+/*
+|------------------------------------------------------------------------------
+| Toast
+|------------------------------------------------------------------------------
+*/
+
+.toast-container {
+  position: fixed;
+  width: 150px;
+  left: 50%;
+  top: 50%;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  z-index: 11800;
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.toast-container.show {
+  display: block;
+}
+
+.toast-container.fadein {
+  opacity: 1;
+}
+
+.toast-icon {
+  font-size: 48px;
+  text-align: center;
+}
+
+.toast-msg {
+  text-align: center;
+  font-weight: normal;
+}
+
+
+
+/*
+|------------------------------------------------------------------------------
+| Custom
+|------------------------------------------------------------------------------
+*/
+
+
+#sigma-container {
+    width: 100%;
+    height: 70%;
+    background-color: #6a9eff;
+}
+
+.button {
+	font-size: 20px;
+}
+
+.chip.color-deeppurple {
+	background-color: #673AB7;
+}
+
+.notification-item {
+	background-color: #212121;
+}
+
+.fdtab {
+	font-size:17px !important;
+	font-weight: 720 !important;
+}
+
+.darktext {
+	color:#1c1c1c  !important;
+}
+
+.tickett {
+	font-family: 'Courier New';
+	font-size: 20px;
+	font-weight: 900;
+}
+
+.page-content {
+	overflow-x: hidden;
+}
+
+.list-block.inputs-list .floating-label{
+    width: 100%;
+    font-size: 18px;
+}
+
+.list-block input[type=text],.layout-dark .list-block input[type=text] {
+    font-size: 26px;
+	color: #212121;
+}
+
+/*
+|------------------------------------------------------------------------------
+| Splash Screen
+|------------------------------------------------------------------------------
+*/
+
+.page[data-page=splash-screen] .splash {
+	align-items: center;
+	background-color: #fff;
+	background: linear-gradient(to bottom, #fff 0%, #fff 40%, #a3ddff 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
+	background-blend-mode: multiply;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-around;
+	overflow: hidden;
+	padding: 16px;
+	text-align: center;
+}
+
+.page[data-page=splash-screen] .splash .splash-media {
+	margin: 32px 0;
+	padding: 0 16px;
+}
+
+.page[data-page=splash-screen] .splash-media .logo {
+	height: auto;
+	width: 100%;
+}
+
+.page[data-page=splash-screen] .splash-media .logo * {
+	fill-opacity: 0;
+	opacity: 0;
+	stroke-width: 4px;
+  transition: fill-opacity 1800ms;
+}
+
+.page[data-page=splash-screen] .splash-media .logo.animation-begin * {
+	opacity: 1;
+}
+
+.page[data-page=splash-screen] .splash-media .logo.animation-finish * {
+  fill-opacity: 1;
+	stroke-width: 1px;
+}
+
+.page[data-page=splash-screen] .splash .splash-preloader {
+	margin: 32px 0;
+	opacity: 0;
+	padding: 0 16px;
+	transition: opacity 1000ms;
+}
+
+.page[data-page=splash-screen] .splash-preloader .preloader {
+	height: 32px;
+	width: 32px;
+}
