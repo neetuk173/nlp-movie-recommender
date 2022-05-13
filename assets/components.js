@@ -65,7 +65,7 @@ myApp.onPageInit('movies', function(page) {
         //
         //  by changing to directory with IMDB.py file first
 
-        api_url = "http://127.0.0.1:8000/movies/"+title;
+        api_url = "http://161.35.253.145:8000/movies/"+title;
 
 
 
