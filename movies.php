@@ -28,14 +28,14 @@
 				<li>
 					<div class="item-content item-inner bg-amber">
 						<i class="icon material-icons color-indigo">view_carousel</i>
-						<div class="fdtab color-indigo">Selected API : <span id="variant-name">-</span></div>
+						<div class="fdtab color-indigo">Selected Service : <span id="variant-name">-</span></div>
 					</div>
 				</li>
 				<li>
 					<a href="#" class="item-content item-link max-hh close-popover">
 						<div class="item-inner">
 							<i class="icon material-icons color-deeporange bg-cyan">vertical_align_top</i>
-							<div class="item-title">RapidAPI service</div>
+							<div class="item-title">Hulu</div>
 						</div>
 					</a>
 				</li>
@@ -43,7 +43,7 @@
 					<a href="#" class="item-content item-link min-hh close-popover">
 						<div class="item-inner">
 							<i class="icon material-icons color-cyan bg-deeporange">vertical_align_bottom</i>
-							<div class="item-title">Local datasets</div>
+							<div class="item-title">IMDB</div>
 						</div>
 					</a>
 				</li>
