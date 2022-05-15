@@ -1,4 +1,3 @@
-
 /*
 |------------------------------------------------------------------------------
 | Splash Screen
@@ -31,12 +30,23 @@ myApp.onPageInit('splash-screen', function(page) {
 
 myApp.onPageInit('movies', function(page) {
     
+    var variant = "IMDB";
+    var title = "";
+
 	$('#waitnotice').hide();
 	$('#sigma-container').hide();
-    $('#variant-name').text("Local datasets");
-    
-    var variant = "Local datasets";
-    var title = "";
+    $('#variant-name').text(variant);
+
+    $('#IMDB').on('click', function(e)
+    {
+        variant = "IMDB";
+        $('#variant-name').text(variant);
+    });
+    $('#Hulu').on('click', function(e)
+    {
+        variant = "Hulu";
+        $('#variant-name').text(variant);
+    });
 
     $('#clear').on('click', function(e)
     {
@@ -59,37 +69,29 @@ myApp.onPageInit('movies', function(page) {
         title = encodeURIComponent($('#vertex').val().trim());
 	    $('#moviename').text($('#vertex').val());
 
-        
         //  Run FastAPI with the command:
         //     python -m uvicorn IMDB:app --host 0.0.0.0 --port 8000
         //
         //  by changing to directory with IMDB.py file first
 
-        api_url = "http://161.35.253.145:8000/movies/"+title;
-
-
+        api_url = "http://localhost:8000/"+variant.toLowerCase()+"/"+title;
 
         if (title.length>1){
           let xmlHttpReq = new XMLHttpRequest();
+          var listhtml = " ";
           try {
             xmlHttpReq.open("GET", api_url, false); 
             xmlHttpReq.send(null)
             console.log(xmlHttpReq.responseText);
-
-            {
-                reco_obj = JSON.parse(xmlHttpReq.responseText);
-                const valuesOnly = Object.values(reco_obj["title"]);
-                var counter = 1;
-                valuesOnly.forEach( movietitle => {
-                    $('.title'+counter).text(movietitle);
-                    $('.title'+counter).parents().eq(1).children('input[type=radio]').attr("value",movietitle);
-                    counter++;
-                    //console.log(movietitle);
-                });
-                $('#sigma-container').show();
-                $('#vertex').val("");
-            }    
-          } 
+            var titles = JSON.parse(xmlHttpReq.responseText);
+            for (let title in titles) {
+                listhtml += '<li><label class="label-radio item-content"><input type="radio" name="radio" value="'+titles[title]+'"><span class="item-media"><i class="icon icon-form-radio"></i></span><span class="item-inner"><span class="item-title">'+titles[title]+'</span></span></label></li>';
+            }
+            
+            $('#titlelist').html(listhtml);
+            $('#sigma-container').show();
+            $('#vertex').val("");
+          }
           catch (text) {
             var l = xmlHttpReq.responseText.length;
             if (l == 0)
@@ -105,9 +107,8 @@ myApp.onPageInit('movies', function(page) {
         $('#sigma-container').hide();
     });
 
-    $("input[name='radio']").change(function(){
+    $('#titlelist').delegate("input[name='radio']", "click", function(){
         $('#vertex').val($(this).val())
     });
-
 
 });

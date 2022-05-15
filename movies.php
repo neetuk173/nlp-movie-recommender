@@ -26,23 +26,23 @@
 		<div class="list-block">
 			<ul>
 				<li>
-					<div class="item-content item-inner bg-amber">
+					<div class="item-content item-inner bg-deeporange">
 						<i class="icon material-icons color-indigo">view_carousel</i>
-						<div class="fdtab color-indigo">Selected Service : <span id="variant-name">-</span></div>
+						<div class="fdtab color-white">Current Source - <span id="variant-name">-</span></div>
 					</div>
 				</li>
 				<li>
-					<a href="#" class="item-content item-link max-hh close-popover">
+					<a href="#" class="item-content item-link close-popover" id="Hulu">
 						<div class="item-inner">
-							<i class="icon material-icons color-deeporange bg-cyan">vertical_align_top</i>
+							<i class="icon material-icons color-lightgreen">live_tv</i>
 							<div class="item-title">Hulu</div>
 						</div>
 					</a>
 				</li>
 				<li>
-					<a href="#" class="item-content item-link min-hh close-popover">
+					<a href="#" class="item-content item-link min-hh close-popover" id="IMDB">
 						<div class="item-inner">
-							<i class="icon material-icons color-cyan bg-deeporange">vertical_align_bottom</i>
+							<i class="icon material-icons color-amber">movie</i>
 							<div class="item-title">IMDB</div>
 						</div>
 					</a>
@@ -81,64 +81,10 @@
 			<div class="bg-black"><p align="center"><span class="color-green tickett">Querying, please wait...</span></p></div>
 		</div>	
 		<div id="sigma-container" class="bg-black">
-		<div class="content-block-title">Recommendations for you if you liked <span id="moviename"></span></div>
+		<div class="content-block-title">Recommendations for you if you liked <span id="moviename" class="fdtab"></span></div>
 			<div class="list-block">
-				<ul>
-					<li>
-						<label class="label-radio item-content">
-							<input type="radio" name="radio" value="books">
-							<span class="item-media">
-								<i class="icon icon-form-radio"></i>
-							</span>
-							<span class="item-inner">
-								<span class="item-title title1">Books</span>
-							</span>
-						</label>
-					</li>
-					<li>
-						<label class="label-radio item-content">
-							<input type="radio" name="radio" value="food">
-							<span class="item-media">
-								<i class="icon icon-form-radio"></i>
-							</span>
-							<span class="item-inner">
-								<span class="item-title title2">Food</span>
-							</span>
-						</label>
-					</li>
-					<li>
-						<label class="label-radio item-content">
-							<input type="radio" name="radio" value="games">
-							<span class="item-media">
-								<i class="icon icon-form-radio"></i>
-							</span>
-							<span class="item-inner">
-								<span class="item-title title3">Games</span>
-							</span>
-						</label>
-					</li>
-					<li>
-						<label class="label-radio item-content">
-							<input type="radio" name="radio" value="movies">
-							<span class="item-media">
-								<i class="icon icon-form-radio"></i>
-							</span>
-							<span class="item-inner">
-								<span class="item-title title4">Movies</span>
-							</span>
-						</label>
-					</li>
-					<li>
-						<label class="label-radio item-content">
-							<input type="radio" name="radio" value="tv">
-							<span class="item-media">
-								<i class="icon icon-form-radio"></i>
-							</span>
-							<span class="item-inner">
-								<span class="item-title title5">TV</span>
-							</span>
-						</label>
-					</li>
+				<ul id="titlelist">
+					
 				</ul>
 			</div>
 

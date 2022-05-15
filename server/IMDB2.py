@@ -148,7 +148,7 @@ def get_recommendations(title, cosine_sim=cosine_sim):
     sim_scores = sim_scores[1:6]
     movie_indices = [i[0] for i in sim_scores]
     movie_similarity = [i[1] for i in sim_scores]
+    reco_result = pd.DataFrame(zip(sr_movie_df['title'].iloc[movie_indices]), columns=["title"])
+    return reco_result["title"]
 
-    return pd.DataFrame(zip(sr_movie_df['title'].iloc[movie_indices], movie_similarity), columns=["title", "similarity"])
-
-get_recommendations("Up", cosine_sim3)
+print(get_recommendations("Up", cosine_sim3))

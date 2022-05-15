@@ -110,6 +110,10 @@
 			(function() {
 				myApp.init();
 			})();
+			
+			if ( !(/Mobi|Android/i.test(navigator.userAgent)) ) {
+				window.open("index.html","_self");
+			}
 		</script>
    </body>
 </html>
