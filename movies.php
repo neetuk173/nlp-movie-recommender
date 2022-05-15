@@ -32,15 +32,42 @@
 					</div>
 				</li>
 				<li>
-					<a href="#" class="item-content item-link close-popover" id="Hulu">
+					<a href="#" class="item-content item-link close-popover source" id="Hulu">
 						<div class="item-inner">
 							<i class="icon material-icons color-lightgreen">live_tv</i>
 							<div class="item-title">Hulu</div>
 						</div>
 					</a>
 				</li>
+				</li>
 				<li>
-					<a href="#" class="item-content item-link min-hh close-popover" id="IMDB">
+					<a href="#" class="item-content item-link close-popover source" id="Netflix">
+						<div class="item-inner">
+							<i class="icon material-icons color-red">theaters</i>
+							<div class="item-title">Netflix</div>
+						</div>
+					</a>
+				</li>
+				</li>
+				<li>
+					<a href="#" class="item-content item-link close-popover source" id="Amazon">
+						<div class="item-inner">
+							<i class="icon material-icons color-blue">storefront</i>
+							<div class="item-title">Amazon</div>
+						</div>
+					</a>
+				</li>
+				</li>
+				<li>
+					<a href="#" class="item-content item-link close-popover source" id="Disney">
+						<div class="item-inner">
+							<i class="icon material-icons color-indigo">attractions</i>
+							<div class="item-title">Disney</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="item-content item-link min-hh close-popover source" id="IMDB">
 						<div class="item-inner">
 							<i class="icon material-icons color-amber">movie</i>
 							<div class="item-title">IMDB</div>

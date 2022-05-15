@@ -16,7 +16,6 @@ myApp.onPageInit('splash-screen', function(page) {
 	function(obj) {
 		obj.el.classList.add('animation-finish');
 
-		/* 10 milliseconds AFTER logo animation is completed, open login screen. */
 		setTimeout(function(){
 			
 			mainView.router.load({
@@ -37,14 +36,9 @@ myApp.onPageInit('movies', function(page) {
 	$('#sigma-container').hide();
     $('#variant-name').text(variant);
 
-    $('#IMDB').on('click', function(e)
+    $('.source').on('click', function(e)
     {
-        variant = "IMDB";
-        $('#variant-name').text(variant);
-    });
-    $('#Hulu').on('click', function(e)
-    {
-        variant = "Hulu";
+        variant = $(this).attr('id');
         $('#variant-name').text(variant);
     });
 
@@ -107,7 +101,7 @@ myApp.onPageInit('movies', function(page) {
         $('#sigma-container').hide();
     });
 
-    $('#titlelist').delegate("input[name='radio']", "click", function(){
+    $('#titlelist').delegate("input[name='radio']", "change", function(){
         $('#vertex').val($(this).val())
     });
 
