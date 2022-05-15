@@ -74,7 +74,7 @@ myApp.onPageInit('movies', function(page) {
         //
         //  by changing to directory with IMDB.py file first
 
-        api_url = "http://localhost:8000/"+variant.toLowerCase()+"/"+title;
+        api_url = "http://161.35.253.145:8000/"+variant.toLowerCase()+"/"+title;
 
         if (title.length>1){
           let xmlHttpReq = new XMLHttpRequest();
