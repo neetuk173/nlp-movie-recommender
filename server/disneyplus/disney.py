@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 # In[4]:
 
 
-data = pd.read_csv('netflix_titles.csv')
+data = pd.read_csv('disney_plus_titles.csv')
 data.head()
 
 
@@ -51,27 +51,10 @@ data.columns #intermediary steps
 # In[8]:
 
 
-data.isna().any()
-
-
-# In[9]:
-
-
-data["director"] = data.director.fillna("null")
-data["cast"] = data.cast.fillna("null")
-data["country"] = data.country.fillna("null")
-data["date_added"] = data.date_added.fillna("null")
-data["rating"] = data.rating.fillna("null")
-data["duration"] = data.duration.fillna("null")
-
-
-# In[10]:
-
-
 data.listed_in.value_counts() #intermediary steps
 
 
-# In[11]:
+# In[9]:
 
 
 categories = ", ".join(data['listed_in']).split(", ")
@@ -79,7 +62,7 @@ counter_list = Counter(categories).most_common(50)
 counter_list #intermediary steps
 
 
-# In[12]:
+# In[10]:
 
 
 Genres = pd.DataFrame(counter_list, columns=['Genre', 'Genre_count'])
@@ -87,40 +70,40 @@ top_10_genres = Genres.head(10)
 top_10_genres #intermediary steps
 
 
-# In[13]:
+# In[11]:
 
 
 data.info() #intermediary steps
 
 
-# In[14]:
+# In[12]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf = TfidfVectorizer(stop_words='english') #need to ensure we don't come across stop words
 
 
-# In[15]:
+# In[13]:
 
 
 tfidf_matrix = tfidf.fit_transform(data['listed_in']) #I chose listed in to recommed similarly genred works
 tfidf_matrix.shape #the matrix we will use for our recommendations 
 
 
-# In[16]:
+# In[14]:
 
 
 from sklearn.metrics.pairwise import linear_kernel 
 cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix) #recommendation algorithm
 
 
-# In[17]:
+# In[15]:
 
 
 indices = pd.Series(data.index, index=data['title']).drop_duplicates() #intermediary steps
 
 
-# In[18]:
+# In[28]:
 
 
 #here we will build the recommendation function itself. We will call this with an existing title.
@@ -135,28 +118,34 @@ def recs(title):
     return data['title'].iloc[show_indices]
 
 
-# In[19]:
+# In[23]:
 
 
-recs('Midnight Mass') #testing
+recs('Feast') #testing
 
 
-# In[20]:
+# In[24]:
 
 
-recs('Sankofa') #testing
+recs('Get a Horse!') #testing
 
 
-# In[21]:
+# In[25]:
 
 
-recs("Europe's Most Dangerous Man: Otto Skorzeny in Spain") #testing
+recs('Planes') #testing
 
 
-# In[22]:
+# In[26]:
 
 
-recs('Jaws')#testing
+recs('Spin')#testing
+
+
+# In[29]:
+
+
+recs('Gus')#testing
 
 
 # In[ ]:

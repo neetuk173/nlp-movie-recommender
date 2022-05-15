@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[21]:
 
 
 pip install ruamel-yaml
 
 
-# In[2]:
+# In[22]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[3]:
+# In[23]:
 
 
 import numpy as np
@@ -23,38 +23,26 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-# In[4]:
+# In[24]:
 
 
-data = pd.read_csv('netflix_titles.csv')
+data = pd.read_csv('amazon_prime_titles.csv')
 data.head()
 
 
-# In[5]:
+# In[25]:
 
 
 data.columns[data.isna().any()].tolist() #intermediary steps
 
 
-# In[6]:
-
-
-data[data.columns[data.isnull().any()]].isnull().sum() * 100 / data.shape[0] #intermediary steps
-
-
-# In[7]:
-
-
-data.columns #intermediary steps
-
-
-# In[8]:
+# In[26]:
 
 
 data.isna().any()
 
 
-# In[9]:
+# In[27]:
 
 
 data["director"] = data.director.fillna("null")
@@ -65,13 +53,31 @@ data["rating"] = data.rating.fillna("null")
 data["duration"] = data.duration.fillna("null")
 
 
-# In[10]:
+# In[28]:
+
+
+data.isna().any()
+
+
+# In[29]:
+
+
+data[data.columns[data.isnull().any()]].isnull().sum() * 100 / data.shape[0] #intermediary steps
+
+
+# In[30]:
+
+
+data.columns #intermediary steps
+
+
+# In[31]:
 
 
 data.listed_in.value_counts() #intermediary steps
 
 
-# In[11]:
+# In[32]:
 
 
 categories = ", ".join(data['listed_in']).split(", ")
@@ -79,7 +85,7 @@ counter_list = Counter(categories).most_common(50)
 counter_list #intermediary steps
 
 
-# In[12]:
+# In[33]:
 
 
 Genres = pd.DataFrame(counter_list, columns=['Genre', 'Genre_count'])
@@ -87,40 +93,40 @@ top_10_genres = Genres.head(10)
 top_10_genres #intermediary steps
 
 
-# In[13]:
+# In[34]:
 
 
 data.info() #intermediary steps
 
 
-# In[14]:
+# In[35]:
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf = TfidfVectorizer(stop_words='english') #need to ensure we don't come across stop words
 
 
-# In[15]:
+# In[36]:
 
 
 tfidf_matrix = tfidf.fit_transform(data['listed_in']) #I chose listed in to recommed similarly genred works
 tfidf_matrix.shape #the matrix we will use for our recommendations 
 
 
-# In[16]:
+# In[37]:
 
 
 from sklearn.metrics.pairwise import linear_kernel 
 cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix) #recommendation algorithm
 
 
-# In[17]:
+# In[38]:
 
 
 indices = pd.Series(data.index, index=data['title']).drop_duplicates() #intermediary steps
 
 
-# In[18]:
+# In[39]:
 
 
 #here we will build the recommendation function itself. We will call this with an existing title.
@@ -135,28 +141,28 @@ def recs(title):
     return data['title'].iloc[show_indices]
 
 
-# In[19]:
+# In[40]:
 
 
-recs('Midnight Mass') #testing
+recs('Pink: Staying True') #testing
 
 
-# In[20]:
+# In[41]:
 
 
-recs('Sankofa') #testing
+recs('Hired Gun') #testing
 
 
-# In[21]:
+# In[42]:
 
 
-recs("Europe's Most Dangerous Man: Otto Skorzeny in Spain") #testing
+recs("Zoombies") #testing
 
 
-# In[22]:
+# In[43]:
 
 
-recs('Jaws')#testing
+recs('Yoga to Break Any Habit')#testing
 
 
 # In[ ]:
